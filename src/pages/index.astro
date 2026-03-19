@@ -1,11 +1,275 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <Layout>
-	<Welcome />
+	<main class="container">
+		<header class="header">
+			<h1 class="font-pixel title-pixel">BECOME A 100X<br/>SOLANA DEV</h1>
+		</header>
+
+		<div class="content-wrapper">
+			<h2 class="subtitle">
+				Solana Bootcamp by <a href="https://x.com/SuperteamIN" target="_blank" rel="noopener noreferrer" class="superteam-link">SuperteamIN</a> and <a href="https://x.com/kirat_tw" target="_blank" rel="noopener noreferrer" class="superteam-link">Harkirat</a>
+			</h2>
+
+			<div class="glass-panel">
+				<div class="gif-wrapper">
+					<div class="tenor-gif-embed" data-postid="3043296495834765851" data-share-method="host" data-aspect-ratio="1" data-width="100%"></div> 
+					<script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+				</div>
+				
+				<div class="redirect-info font-mono">
+					<p>// The Solana India Fellowship is an 8-week intensive for elite builders.</p>
+					<p id="timer-text">// Redirecting to Fellowship in <span id="countdown" class="text-gradient font-bold">10</span> seconds...</p>
+				</div>
+			</div>
+
+			<div class="actions font-mono">
+				<button id="cancel-btn" class="btn btn-outline">[ CANCEL_REDIRECTION ]</button>
+				<button id="proceed-btn" class="btn btn-primary">[ PROCEED_MANUALLY ]</button>
+			</div>
+		</div>
+
+		<footer class="footer font-mono">
+			<a href="https://x.com/khandakarruhan" target="_blank" rel="noopener noreferrer" class="x-link">
+				<svg viewBox="0 0 24 24" class="x-icon" fill="currentColor">
+					<path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+				</svg>
+				@khandakarruhan
+			</a>
+		</footer>
+	</main>
 </Layout>
+
+<style>
+	.container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		min-height: 100vh;
+		text-align: center;
+		padding: 2rem;
+		width: 100%;
+		max-width: 1000px;
+		margin: 0 auto;
+		position: relative;
+		z-index: 10;
+	}
+
+	.header {
+		margin-bottom: 2rem;
+	}
+
+	.title-pixel {
+		font-size: 5rem;
+		line-height: 0.9;
+		letter-spacing: -2px;
+		color: #ffffff;
+		margin: 0;
+		text-shadow: 4px 4px 0px rgba(0,0,0,1);
+	}
+
+	.subtitle {
+		font-size: 1.5rem;
+		font-weight: 400;
+		margin-bottom: 2rem;
+		color: var(--text-muted);
+	}
+
+	.superteam-link {
+		color: #ffffff;
+		font-weight: 600;
+		text-decoration: none;
+		position: relative;
+		transition: all 0.3s ease;
+	}
+
+	.superteam-link:hover {
+		color: var(--solana-green);
+	}
+
+	.glass-panel {
+		background: rgba(20, 20, 20, 0.4);
+		backdrop-filter: blur(16px);
+		-webkit-backdrop-filter: blur(16px);
+		border: 1px solid rgba(255, 255, 255, 0.08);
+		border-radius: 24px;
+		padding: 2.5rem;
+		margin-bottom: 2rem;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+		width: 100%;
+		max-width: 700px;
+	}
+
+	.gif-wrapper {
+		width: 250px;
+		max-width: 100%;
+		margin-bottom: 2rem;
+		border-radius: 12px;
+		overflow: hidden;
+		box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+		position: relative;
+	}
+	
+	.gif-wrapper::after {
+		content: '';
+		position: absolute;
+		top: 0; left: 0; width: 100%; height: 100%;
+		box-shadow: inset 0 0 0 1px rgba(255,255,255,0.1);
+		border-radius: 12px;
+		pointer-events: none;
+	}
+
+	.redirect-info {
+		margin-bottom: 1rem;
+		color: var(--text-muted);
+		text-align: center;
+		font-size: 1.1rem;
+		line-height: 1.6;
+	}
+
+	.redirect-info p {
+		margin: 0.5rem 0;
+	}
+
+	.font-bold {
+		font-weight: 700;
+		font-size: 1.4rem;
+	}
+
+	.actions {
+		display: flex;
+		gap: 1.5rem;
+		flex-wrap: wrap;
+		justify-content: center;
+		width: 100%;
+	}
+
+	.btn {
+		font-family: 'Space Mono', monospace;
+		padding: 1rem 2rem;
+		font-size: 1rem;
+		font-weight: 700;
+		cursor: pointer;
+		transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+		letter-spacing: 0.5px;
+		background: transparent;
+		-webkit-appearance: none;
+		appearance: none;
+	}
+
+	.btn-outline {
+		color: #ffffff;
+		border: 1px solid rgba(255, 255, 255, 0.2);
+	}
+	
+	.btn-outline:hover {
+		border-color: #ff4545;
+		color: #ff4545;
+		background: rgba(255, 69, 69, 0.05);
+		box-shadow: 0 0 20px rgba(255, 69, 69, 0.2);
+	}
+
+	.btn-primary {
+		color: #000000 !important;
+		background: #ffffff !important;
+		border: 1px solid #ffffff;
+	}
+	
+	.btn-primary:hover {
+		background: var(--solana-green) !important;
+		border-color: var(--solana-green);
+		color: #000000 !important;
+		box-shadow: 0 0 25px rgba(20, 241, 149, 0.4);
+		transform: translateY(-2px);
+	}
+
+	.footer {
+		margin-top: 3rem;
+		opacity: 0.7;
+		transition: opacity 0.3s ease;
+	}
+
+	.footer:hover {
+		opacity: 1;
+	}
+
+	.x-link {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		color: var(--text-muted);
+		text-decoration: none;
+		font-size: 0.95rem;
+		font-weight: 500;
+		transition: color 0.3s ease;
+	}
+
+	.x-link:hover {
+		color: #ffffff;
+	}
+
+	.x-icon {
+		width: 18px;
+		height: 18px;
+	}
+
+	@media (max-width: 600px) {
+		.title-pixel { font-size: 3.5rem; }
+		.btn { font-size: 0.9rem; padding: 0.8rem 1.2rem; width: 100%; }
+		.actions { flex-direction: column; gap: 1rem; }
+		.glass-panel { padding: 1.5rem; }
+	}
+</style>
+
+<script>
+	document.addEventListener('DOMContentLoaded', () => {
+		const countdownEl = document.getElementById('countdown');
+		const timerTextEl = document.getElementById('timer-text');
+		const cancelBtn = document.getElementById('cancel-btn');
+		const proceedBtn = document.getElementById('proceed-btn');
+		
+		let timeLeft = 10;
+		let isCancelled = false;
+		
+		const FELLOWSHIP_URL = 'https://fellowship.superteamin.fun/';
+
+		const interval = setInterval(() => {
+			if (isCancelled) return;
+			
+			timeLeft--;
+			if (countdownEl) {
+				countdownEl.textContent = timeLeft.toString();
+			}
+
+			if (timeLeft <= 0) {
+				clearInterval(interval);
+				window.location.href = FELLOWSHIP_URL;
+			}
+		}, 1000);
+
+		if (cancelBtn) {
+			cancelBtn.addEventListener('click', () => {
+				isCancelled = true;
+				clearInterval(interval);
+				if (timerTextEl) {
+					timerTextEl.innerHTML = '// Redirection Halted.';
+					timerTextEl.style.color = '#ff4545';
+				}
+				cancelBtn.style.opacity = '0.3';
+				cancelBtn.style.pointerEvents = 'none';
+			});
+		}
+
+		if (proceedBtn) {
+			proceedBtn.addEventListener('click', () => {
+				window.location.href = FELLOWSHIP_URL;
+			});
+		}
+	});
+</script>

@@ -2,22 +2,122 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 397 311'%3E%3Cpath fill='%2314F195' d='M64.6 237h282.4l50 74H114.6z'/%3E%3Cpath fill='%2314F195' d='M64.6 74h282.4l50-74H114.6z'/%3E%3Cpath fill='%239945FF' d='M347 155.5H64.6l-50 74H297z'/%3E%3C/svg%3E" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		
+		<!-- SEO & Meta tags -->
+		<title>Solana Bootcamp | SuperteamIN</title>
+		<meta name="description" content="Prepare for the Solana Bootcamp by SuperteamIN." />
+		<meta property="og:title" content="Solana Bootcamp | SuperteamIN" />
+		<meta property="og:description" content="Prepare for the Solana Bootcamp by SuperteamIN." />
+		
+		<!-- Google Fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&family=VT323&display=swap" rel="stylesheet">
 	</head>
 	<body>
+		<div class="glow-bg">
+			<div class="glow-orb purple-orb"></div>
+			<div class="glow-orb green-orb"></div>
+			<div class="grid-overlay"></div>
+		</div>
 		<slot />
 	</body>
 </html>
 
-<style>
+<style is:global>
+	:root {
+		--solana-green: #14F195;
+		--solana-purple: #9945FF;
+		--solana-dark: #000000;
+		--text-main: #FFFFFF;
+		--text-muted: #A1A1A6;
+	}
+
 	html,
 	body {
 		margin: 0;
+		padding: 0;
 		width: 100%;
 		height: 100%;
+		background-color: var(--solana-dark);
+		color: var(--text-main);
+		font-family: 'Inter', sans-serif;
+		display: flex;
+		flex-direction: column;
+		overflow-x: hidden;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	}
+
+	/* Glowing Background System */
+	.glow-bg {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100vw;
+		height: 100vh;
+		z-index: -1;
+		overflow: hidden;
+		background: #000;
+	}
+
+	.glow-orb {
+		position: absolute;
+		width: 60vw;
+		height: 60vw;
+		border-radius: 50%;
+		filter: blur(120px);
+		opacity: 0.4;
+		animation: float 20s infinite alternate ease-in-out;
+	}
+
+	.purple-orb {
+		background: radial-gradient(circle, var(--solana-purple) 0%, rgba(153, 69, 255, 0) 70%);
+		top: -20%;
+		left: -10%;
+	}
+
+	.green-orb {
+		background: radial-gradient(circle, var(--solana-green) 0%, rgba(20, 241, 149, 0) 70%);
+		bottom: -20%;
+		right: -10%;
+		animation-delay: -10s;
+	}
+
+	.grid-overlay {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-size: 50px 50px;
+		background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+						  linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+		opacity: 0.5;
+	}
+
+	@keyframes float {
+		0% { transform: translate(0, 0) scale(1); }
+		50% { transform: translate(5%, 10%) scale(1.1); }
+		100% { transform: translate(-5%, -5%) scale(0.9); }
+	}
+
+	/* Utility for Solana gradient text */
+	.text-gradient {
+		background: linear-gradient(90deg, var(--solana-purple) 0%, var(--solana-green) 100%);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+	}
+	
+	/* Utility for the monospace retro block */
+	.font-mono {
+		font-family: 'Space Mono', monospace;
+	}
+	.font-pixel {
+		font-family: 'VT323', monospace;
 	}
 </style>
